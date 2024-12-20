@@ -1,0 +1,54 @@
+import {useHistory} from "react-router-dom/ejs/react"
+
+function CreateWord() {
+   const [days, setDays] = useState([]);
+
+   const history = useHistory();
+   const dayRef = useRef[null];
+   fetch("http://localhost:3001:days")
+    .then((res)=>{
+        return res.json();
+    })
+    .then((res)=>{
+        console.log(data);
+        setDays(data);
+    })
+
+    function onSubmit(){
+
+    }
+    
+    return(
+        <div className = "create_form">
+                <h2> 단어추가 {CreateWord}</h2>
+                <form onSubmit={onSubmit}>
+                    <div className = "input_area">
+                    <lable>Eng</lable>
+                    <input type="text" placholder="computer" ref={engRef}></input>
+                    </div>
+                    
+                    <div className = "input_area">
+                    <lable>Koe</lable>
+                    <input type="text" placholder="computer" ref={korRef}></input>
+                    </div>
+
+                    <div className = "input_area">
+                    <lable>Day</lable>
+                    <select ref={dayRef}>
+                        {
+                            days.map{(day)=>{
+                                return(
+                                    <option key={day.id} value={day.day}></option>
+                                    Day {day.day}
+                                )
+                            }}
+                        }
+                    </select>
+                    <input type="text" placholder="computer" ref={dayRef}></input>
+                    </div>
+                </form>
+        </div>
+    )
+}
+
+export default CreateWord;
